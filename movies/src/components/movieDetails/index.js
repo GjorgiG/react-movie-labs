@@ -56,6 +56,19 @@ const MovieDetails = ( props) => {
           label={`${movie.vote_average} (${movie.vote_count}`}
         />
         <Chip label={`Released: ${movie.release_date}`} />
+
+      </Paper>
+
+      <Paper component="ul" sx={{...root}}>
+      <li>
+          <Chip label="Production Countries" sx={{...chip}} color="primary" />
+        </li>
+        {movie.production_countries.map((production_countries) => (
+          <li key={production_countries.name}>
+            <Chip label={production_countries.name} sx={{...chip}} />
+          </li>
+        ))}
+
       </Paper>
       <Fab
         color="secondary"
@@ -66,10 +79,13 @@ const MovieDetails = ( props) => {
             right: 2
         }}
       >
+
         <NavigationIcon />
         Reviews
       </Fab>
       </>
+
+      
   );
 };
 export default MovieDetails ;
