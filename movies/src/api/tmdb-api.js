@@ -40,3 +40,12 @@ export const getMovies = () => {
         return json.results;
       });
   };
+
+
+  export const getUpcomingMovies = async () => {
+    const res = await fetch(
+      `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_TMDB_KEY}`
+    );
+    const json = await res.json();
+    return json.results;
+  };
