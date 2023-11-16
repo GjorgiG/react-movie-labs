@@ -41,11 +41,10 @@ export const getMovies = () => {
       });
   };
 
-
-  export const getUpcomingMovies = async () => {
-    const res = await fetch(
-      `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_TMDB_KEY}`
-    );
-    const json = await res.json();
-    return json.results;
-  };
+export const getUpcomingMovies = () => {
+  return fetch(
+    `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_TMDB_KEY}`
+  )
+    .then(res => res.json())
+    .then(json => json.results);
+};
