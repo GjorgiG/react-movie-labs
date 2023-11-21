@@ -7,7 +7,7 @@ import AddToFavoritesIcon from '../components/cardIcons/addToFavorites'
 
 const UpcomingMovies = (props) => {
 
-    const {  data, error, isLoading, isError }  = useQuery('discover', getUpcomingMovies)
+    const {  data, error, isLoading, isError }  = useQuery('upcoming', getUpcomingMovies)
   
     if (isLoading) {
       return <Spinner />
