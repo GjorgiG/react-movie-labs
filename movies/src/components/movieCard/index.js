@@ -18,7 +18,7 @@ import { MoviesContext } from "../../contexts/moviesContext";
 import PlaylistAddIcon from "@mui/icons-material/PlaylistAdd";
 
 export default function MovieCard({movie, action}) {
-  const { favorites, addToFavorites } = useContext(MoviesContext);
+  const { favorites, addToFavorites, watchlists, addToWatchlist } = useContext(MoviesContext);
 
   if (favorites.find((id) => id === movie.id)) {
     movie.favorite = true;
@@ -26,9 +26,20 @@ export default function MovieCard({movie, action}) {
     movie.favorite = false
   }
 
+  // if (watchlists.find((id) => id === movie.id)) {
+  //   movie.watchlists = true;
+  // } else {
+  //   movie.watchlists = false
+  // }
+
   const handleAddToFavorite = (e) => {
     e.preventDefault();
     addToFavorites(movie);
+  };
+
+  const handleAddToWatchlist = (e) => {
+    e.preventDefault();
+    addToWatchlist(movie);
   };
   
   return (
@@ -77,7 +88,6 @@ export default function MovieCard({movie, action}) {
           <Button variant="outlined" size="medium" color="primary">
             More Info ...
           </Button>
-          <PlaylistAddIcon fontSize="medium" />
         </Link>
       </CardActions>
     </Card>
